@@ -1,0 +1,51 @@
+ <html>
+ <head>
+	<title>Fake Formular</title>
+ </head>
+ <body>
+ Blablabla<br/>asdf
+ <table border="1">
+	<tr>
+		<th>Table Header 1</th>
+		<th>Table Header 2</th>
+		<th>Table Header 3</th>
+		<th>Table Header 4</th>
+	</tr>
+	<tr>
+		<td>Table Data 1</td>
+		<td>Table Data 2</td>
+		<td>Table Data 3</td>
+		<td>Table Data 4</td>
+	</tr>
+  </table>
+  <form action="form_get.php" method="GET">
+  <table>
+	<tr>
+		<th>Name</th>
+		<td><input type="password" name="name"></td>
+	</tr>
+	<tr>
+		<th>E-Mail</th>
+		<td><input type="email" name="email"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit"></td>
+	</tr>
+	<tr>
+		<th>Wie alt bist du?</th>
+		<td><input type="text" name="text"></td>
+	</tr>
+	<tr>
+		<th>Was studieren Sie?</th>
+		<input type="search" list="Faecher"
+		<datalist id="Faecher">
+			<option value="Informatik">
+			<option value="Musik">
+			<option value="Art">
+			<option value="Biology">
+		</datalist>
+		<button>suchen</button>
+	</tr>
+  </table>
+  </form>
+ </body>

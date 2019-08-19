@@ -1,0 +1,18 @@
+.header
+{
+	background-color:#D2B331;
+}
+.kundendaten
+{
+	position: absolute;
+	right: 0px;
+}
+table th td
+{
+	min-width:100%;
+	max-width:100%;
+	border-collapse: collapse;
+	border: 1px right left;
+	border-color: black;
+	word-wrap: break-word;
+}
