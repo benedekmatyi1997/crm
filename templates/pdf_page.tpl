@@ -18,7 +18,10 @@ BIC: RLNWATWW</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br />
 
-<table style="width: 100%;">
+<table style="width: 90%;">
+<tr>
+<td style="width: 100%;">
+<table class="ourtable">
 	<tr class="header">
 		<th style="width: 5%;">Pos</th>
 		<th style="width: 38%;">Beschreibung</th>
@@ -26,12 +29,50 @@ BIC: RLNWATWW</div>
 		<th style="width: 19%;">Menge</th>
 		<th style="width: 19%;">Summe &euro;</th>
 	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>Kurs für Fortgeschrittene-  Sviatoslav Otchenash    Von 28.09.2019 bis 29.09.2019  </td>
+	<tr style="width: 100%;">
+		<td style="height: 100%;">&nbsp;</td>
+		<td style="width: 20%;">Kurs für Fortgeschrittene-  Sviatoslav Otchenash    Von 28.09.2019 bis 29.09.2019  </td>
 		<td>Kurs Preis:  Netto 1.200,00  &euro;</td>
 		<td>1</td>
 		<td>1.200,00 &euro;</td>
 	</tr>
+	<tr style="width: 100%;">
+		<td>&nbsp;</td>
+		<td style="width: 20%;">&nbsp;</td>
+		<td>Gesamt-Netto</td>
+		<td>:</td>
+		<td>1.200,00 &euro;</td>
+	</tr>
+	<tr style="width: 100%;">
+		<td>&nbsp;</td>
+		<td style="width: 20%;">&nbsp;</td>
+		<td>USt. 20%</td>
+		<td>:</td>
+		<td>240,00 &euro;</td>
+	</tr>
+	<tr style="width: 100%;">
+		<td>&nbsp;</td>
+		<td style="width: 20%;">&nbsp;</td>
+		<td>Zu zahlen</td>
+		<td>:</td>
+		<td>1.440,00 &euro;</td>
+	</tr>
+	<tr style="width: 100%;">
+		<td>&nbsp;</td>
+		<td style="width: 20%;">&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr style="width: 100%;border-bottom: solid 1px black;">
+		<td>&nbsp;</td>
+		<td style="width: 20%;">&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+</td>
+</tr>
 </table>
 </page>

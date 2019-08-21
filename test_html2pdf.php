@@ -7,8 +7,9 @@ require_once("setup.inc.php");
 
 $smarty=new Smarty;
 
-$html2pdf = new Html2Pdf();
-
+$html2pdf = new Html2Pdf('P', 'A4', 'fr');
+//<!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+$html2pdf->setTestTdInOnePage(false);
 for($i=1;$i<=10;$i++)
 {
 	$smarty->assign("i",$i);

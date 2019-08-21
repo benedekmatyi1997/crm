@@ -1,18 +1,37 @@
 .header
 {
 	background-color:#D2B331;
+	width:100%;
+	border-top: solid 1px black;
 }
 .kundendaten
 {
 	position: absolute;
 	right: 0px;
 }
-table th td
+/*table th td
 {
 	min-width:100%;
 	max-width:100%;
 	border-collapse: collapse;
 	border: 1px right left;
 	border-color: black;
-	word-wrap: break-word;
+	
+}*/
+
+.ourtable { 
+border-top: solid 1px black;
+border-bottom: solid 1px black;
+border-collapse: collapse;
+width: 100%;
+height: 45%;
+}
+/*tr { border: none; }*/
+.ourtable td,th {
+  /*border-top: solid 1px black;
+  border-bottom: solid 1px black;*/
+  border-right: solid 1px black; 
+  border-left: solid 1px black;
+  word-wrap: overflow-wrap;
+  /*overflow-wrap: break-word;*/
 }
