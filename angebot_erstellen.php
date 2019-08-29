@@ -15,8 +15,8 @@ $id="";
 if($stmt->execute())
 {
 	$id=$db->lastInsertId();
-	$stmt=$db->prepare("INSERT INTO angebotposition (KundeID,BausteinID) VALUES (:kundeID,:bausteinID)");
-	$stmt->bindValue(":kundeID",$id);
+	$stmt=$db->prepare("INSERT INTO angebotposition (angebotID,BausteinID) VALUES (:angebotID,:bausteinID)");
+	$stmt->bindValue(":angebotID",$id);
 	echo("x".PHP_EOL);
 	print_r($_GET);
 	echo("y".print_r(filter_input(INPUT_GET,"angebotbausteine"),true)."y".print_r(filter_input(INPUT_GET,"angebotbausteine[]"),true)."y");
@@ -25,7 +25,7 @@ if($stmt->execute())
 	if(isset($_GET["angebotbausteine"]) && is_array($_GET["angebotbausteine"]) && count($_GET["angebotbausteine"]))
 	{
 		
-		foreach($_GET["angebotbausteine"] as $angebotbaustein)//TODO: stackoverflow fragen wegen filter_input multiple select
+		foreach($_GET["angebotbausteine"] as $angebotbaustein)
 		{
 			$stmt->bindValue(":bausteinID",$angebotbaustein);
 			if(!$stmt->execute())
@@ -37,7 +37,7 @@ if($stmt->execute())
 	if(!strlen($error))
 	{
 		$stmt=$db->prepare("SELECT * FROM kunde WHERE id=:kundeID");
-		$stmt->bindValue(":kundeID",$id);
+		$stmt->bindValue(":kundeID",filter_input(INPUT_GET,"kunde"));
 		if($stmt->execute())
 		{
 			$kunde=$stmt->fetchAll();
