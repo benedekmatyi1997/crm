@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Bearbeiter erfolgreich erstellt"}
+{include file="header.tpl" title="Angebotsanzeige"}
  <table>
 	<tr>
 		<th>Kunde Name:</th>

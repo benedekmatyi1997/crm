@@ -9,12 +9,12 @@ IBAN: AT05 3200 0000 1277 7124<br />
 BIC: RLNWATWW</div>
 </page_footer>
 <div class="kundendaten">
-<b>Kunde:</b> Mr. Robert Ergovic<br />
-<b>Adresse:</b> Dubravica 8, 10434, Kroatien<br />
-<b>Telefon:</b> 0038 59 842 9993<br />
-<b>E-mail:</b> rergovic@gmail.com<br />
-<b>Datum:</b> 05/08/2019<br />
-<b>Angebot Nr.:</b> 009/2019
+<b>Kunde:</b> {$angebot.Kunde_Name}<br />
+<b>Adresse:</b>{$angebot.Kunde_Adresse}<br />
+<b>Telefon:</b> {$angebot.Kunde_Telefon}<br />
+<b>E-mail:</b> {$angebot.Kunde_Email}<br />
+<b>Datum:</b> {$angebot.Datum}<br />
+<b>Angebot Nr.:</b> {$angebot.AngebotNummer}
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -29,34 +29,36 @@ BIC: RLNWATWW</div>
 		<th style="width: 19%;">Menge</th>
 		<th style="width: 19%;">Summe &euro;</th>
 	</tr>
+	{foreach $bausteine as $baustein}
 	<tr style="width: 100%;">
 		<td style="height: 100%;">&nbsp;</td>
-		<td style="width: 20%;">Kurs für Fortgeschrittene-  Sviatoslav Otchenash    Von 28.09.2019 bis 29.09.2019  </td>
-		<td>Kurs Preis:  Netto 1.200,00  &euro;</td>
+		<td style="width: 20%;">{$baustein.Beschreibung}</td>
+		<td>Kurs&nbsp;Preis:  Netto {$baustein.Nettopreis}  &euro;</td>
 		<td>1</td>
-		<td>1.200,00 &euro;</td>
+		<td>{$baustein.Nettopreis} &euro;</td>
 	</tr>
 	<tr style="width: 100%;">
 		<td>&nbsp;</td>
 		<td style="width: 20%;">&nbsp;</td>
 		<td>Gesamt-Netto</td>
 		<td>:</td>
-		<td>1.200,00 &euro;</td>
+		<td>{$baustein.Nettopreis} &euro;</td>
 	</tr>
 	<tr style="width: 100%;">
 		<td>&nbsp;</td>
 		<td style="width: 20%;">&nbsp;</td>
-		<td>USt. 20%</td>
+		<td>USt. {$baustein.MwSt}%</td>
 		<td>:</td>
-		<td>240,00 &euro;</td>
+		<td>{$baustein.MwStSumme} &euro;</td>
 	</tr>
 	<tr style="width: 100%;">
 		<td>&nbsp;</td>
 		<td style="width: 20%;">&nbsp;</td>
 		<td>Zu zahlen</td>
 		<td>:</td>
-		<td>1.440,00 &euro;</td>
+		<td>{$baustein.Bruttopreis} &euro;</td>
 	</tr>
+	{/foreach}
 	<tr style="width: 100%;">
 		<td>&nbsp;</td>
 		<td style="width: 20%;">&nbsp;</td>
