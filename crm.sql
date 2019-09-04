@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 29. Aug 2019 um 14:47
+-- Erstellungszeit: 04. Sep 2019 um 18:05
 -- Server-Version: 10.3.16-MariaDB
 -- PHP-Version: 7.3.6
 
@@ -36,6 +36,36 @@ CREATE TABLE `angebotbaustein` (
   `MwSt` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `angebotbaustein`
+--
+
+INSERT INTO `angebotbaustein` (`ID`, `name`, `Beschreibung`, `Nettopreis`, `MwSt`) VALUES
+(1, 'Matyi', 'asdfadfbresthhuiawrngjköönkjdfiubaslksgnfoihhödsgf', 2500, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Stellvertreter-Struktur des Views `angebotdetails`
+-- (Siehe unten für die tatsächliche Ansicht)
+--
+CREATE TABLE `angebotdetails` (
+`ID` int(11)
+,`Datum` date
+,`AngebotNummer` varchar(10)
+,`KundeID` int(11)
+,`BearbeiterID` int(11)
+,`TerminStart` datetime
+,`TerminEnd` datetime
+,`Kunde_Name` varchar(100)
+,`Kunde_Telefon` varchar(30)
+,`Kunde_Email` varchar(256)
+,`Kunde_Adresse` text
+,`Bearbeiter_Name` varchar(100)
+,`Bearbeiter_Telefon` varchar(30)
+,`Bearbeiter_Email` varchar(256)
+);
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +82,13 @@ CREATE TABLE `angebotkunde` (
   `TerminEnd` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `angebotkunde`
+--
+
+INSERT INTO `angebotkunde` (`ID`, `Datum`, `AngebotNummer`, `KundeID`, `BearbeiterID`, `TerminStart`, `TerminEnd`) VALUES
+(1, '2019-08-30', '001/2019', 1, 1, '2019-09-10 00:00:00', '2019-09-15 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -63,6 +100,13 @@ CREATE TABLE `angebotposition` (
   `AngebotID` int(11) NOT NULL,
   `BausteinID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `angebotposition`
+--
+
+INSERT INTO `angebotposition` (`ID`, `AngebotID`, `BausteinID`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -77,6 +121,13 @@ CREATE TABLE `bearbeiter` (
   `Name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `bearbeiter`
+--
+
+INSERT INTO `bearbeiter` (`ID`, `Telefon`, `Email`, `Name`) VALUES
+(1, '702504097', 'benedekmatyi1997@gmail.com', 'Benedek Mátyás');
+
 -- --------------------------------------------------------
 
 --
@@ -90,6 +141,22 @@ CREATE TABLE `kunde` (
   `Name` varchar(100) NOT NULL,
   `Adresse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `kunde`
+--
+
+INSERT INTO `kunde` (`ID`, `Telefon`, `Email`, `Name`, `Adresse`) VALUES
+(1, '1234', 'csabi.burus@gmail.com', 'Burus Alpar Csaba', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur des Views `angebotdetails`
+--
+DROP TABLE IF EXISTS `angebotdetails`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `angebotdetails`  AS  select `ak`.`ID` AS `ID`,`ak`.`Datum` AS `Datum`,`ak`.`AngebotNummer` AS `AngebotNummer`,`ak`.`KundeID` AS `KundeID`,`ak`.`BearbeiterID` AS `BearbeiterID`,`ak`.`TerminStart` AS `TerminStart`,`ak`.`TerminEnd` AS `TerminEnd`,`k`.`Name` AS `Kunde_Name`,`k`.`Telefon` AS `Kunde_Telefon`,`k`.`Email` AS `Kunde_Email`,`k`.`Adresse` AS `Kunde_Adresse`,`b`.`Name` AS `Bearbeiter_Name`,`b`.`Telefon` AS `Bearbeiter_Telefon`,`b`.`Email` AS `Bearbeiter_Email` from ((`angebotkunde` `ak` left join `kunde` `k` on(`ak`.`KundeID` = `k`.`ID`)) left join `bearbeiter` `b` on(`ak`.`BearbeiterID` <> 0)) ;
 
 --
 -- Indizes der exportierten Tabellen
@@ -135,31 +202,31 @@ ALTER TABLE `kunde`
 -- AUTO_INCREMENT für Tabelle `angebotbaustein`
 --
 ALTER TABLE `angebotbaustein`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `angebotkunde`
 --
 ALTER TABLE `angebotkunde`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `angebotposition`
 --
 ALTER TABLE `angebotposition`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `bearbeiter`
 --
 ALTER TABLE `bearbeiter`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `kunde`
 --
 ALTER TABLE `kunde`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints der exportierten Tabellen
