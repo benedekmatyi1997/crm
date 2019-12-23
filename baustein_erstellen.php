@@ -16,6 +16,6 @@ else
 {
 	//TODO:tpl erstellen
 	echo("Fehler:<br />");
-	print_r($stmt->errorInfo());
+	print_r($stmt->errorInfo()[2]);
 }
 ?>

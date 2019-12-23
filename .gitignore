@@ -1,3 +1,4 @@
 /templates_c/
 /db_config.inc.php
 /test_*
+/nbproject/private/
